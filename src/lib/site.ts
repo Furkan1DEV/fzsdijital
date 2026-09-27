@@ -4,7 +4,7 @@ export const site = {
   tagline: "Yazılım · AI · Embedded · SaaS",
   shortBio: "AI Agent, randevu/booking sistemi ve full-stack SaaS geliştiren yazılım stüdyosu.",
   domain: "fzsdijital.com",
-  email: "info@fzsdijital.com",
+  email: "fzsdigitalsoftware@gmail.com",
   /** Boş bırakılan alanlar sitede gizlenir. Alan adın açıldıkça buraya gir. */
   whatsapp: "", // ör: "https://wa.me/905xxxxxxxxx"
   calendly: "", // ör: "https://calendly.com/fzsdijital/15min"

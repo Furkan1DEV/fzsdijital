@@ -6,8 +6,8 @@ type Project = {
   title: string;
   description: string;
   tags: string[];
-  href: string;
-  cta: string;
+  href?: string;
+  cta?: string;
   repo?: boolean;
   gradient: string;
 };
@@ -70,9 +70,6 @@ const projects: Project[] = [
     description:
       "Modern e-ticaret arayüzü: ürün katalogu, sepet ve ödeme akışı için üretime hazır temel yapı.",
     tags: ["TypeScript", "E-ticaret", "UI"],
-    href: "https://github.com/Furkan1DEV/akmena-ecommerce",
-    cta: "GitHub",
-    repo: true,
     gradient: "from-cyan-500/50 via-indigo-600/30 to-transparent",
   },
 ];
@@ -113,13 +110,15 @@ export default function Work() {
               <span className="relative select-none px-6 font-display text-4xl font-bold uppercase tracking-[0.12em] text-white/85 sm:text-5xl">
                 {project.word}
               </span>
-              <span className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-black/40 text-white backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
-                {project.repo ? (
-                  <GithubLogo size={16} />
-                ) : (
-                  <ArrowUpRight size={16} />
-                )}
-              </span>
+              {project.href ? (
+                <span className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-black/40 text-white backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
+                  {project.repo ? (
+                    <GithubLogo size={16} />
+                  ) : (
+                    <ArrowUpRight size={16} />
+                  )}
+                </span>
+              ) : null}
             </div>
 
             <div className="flex flex-1 flex-col p-6">
@@ -139,15 +138,21 @@ export default function Work() {
                 ))}
               </div>
 
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex cursor-pointer items-center gap-1.5 self-start text-sm font-semibold text-brand-2 transition-colors hover:text-white"
-              >
-                {project.cta}
-                <ArrowUpRight size={15} />
-              </a>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex cursor-pointer items-center gap-1.5 self-start text-sm font-semibold text-brand-2 transition-colors hover:text-white"
+                >
+                  {project.cta}
+                  <ArrowUpRight size={15} />
+                </a>
+              ) : (
+                <span className="mt-6 inline-flex items-center gap-1.5 self-start text-sm font-medium text-fg-muted">
+                  Demo yakında
+                </span>
+              )}
             </div>
           </article>
         ))}
